@@ -9,4 +9,4 @@ use sequential in keras to define it in simpler ways
 
 # References
 * [tutorial](https://www.youtube.com/watch?v=68HR_eyzk00)
-
+* [The dataset used](https://www.kaggle.com/c/data-science-bowl-2018/data)

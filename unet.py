@@ -1,9 +1,8 @@
 import tensorflow as tf
+import pickle
 
-IMG_WIDTH = 128
-IMG_HEIGHT = 128
-IMG_CHANNELS = 3
-
+from constants import *
+import parse_data
 # building the model c1,p1, etc are all labelled in the image
 
 inputs = tf.keras.layers.Input((IMG_WIDTH, IMG_HEIGHT, IMG_CHANNELS))
@@ -85,4 +84,9 @@ callbacks=[
     tf.keras.callbacks.TensorBoard(log_dir='logs'),
 ]
 
-results = model.fit(X, Y, validation_split=0.1, batch_size=16, epochs=25, callbacks=callbacks)
+# get the data
+# X_train, Y_train, X_test = parse_data.getData()
+X_train, Y_train, X_test = pickle.load(open('parsed_data/X_train.dat','rb')), pickle.load(open('parsed_data/Y_train.dat','rb')), pickle.load(open('parsed_data/X_test.dat','rb'))
+
+# results = model.fit(X_train, Y_train, validation_split=0.1, batch_size=16, epochs=25, callbacks=callbacks)
+#######
